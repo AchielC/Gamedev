@@ -18,6 +18,7 @@ import KiloboltGame.framework.Animation;
 
 public class StartingClass extends Applet implements Runnable, KeyListener {
 
+	private static final long serialVersionUID = 3032478395185059132L;
 	private static Robot robot;
 	public static Heliboy hb, hb2;
 	public static int score = 0;

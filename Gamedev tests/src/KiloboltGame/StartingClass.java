@@ -3,14 +3,14 @@ package KiloboltGame;
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Frame;
+// import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -44,8 +44,8 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 		setBackground(Color.BLACK);
 		setFocusable(true);
 		addKeyListener(this);
-		Frame frame = (Frame) this.getParent().getParent();
-		frame.setTitle("Q-Bot Alpha");
+//		Frame frame = (Frame) this.getParent().getParent();
+//		frame.setTitle("Q-Bot Alpha");
 		try {
 			base = getDocumentBase();
 		} catch (Exception e) {
@@ -100,7 +100,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 		robot = new Robot();
 		// Initialize Tiles
 		try {
-			loadMap("data/map1.txt");
+			loadMap("/data/map1.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -118,7 +118,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 		int width = 0;
 		int height = 0;
 
-		BufferedReader reader = new BufferedReader(new FileReader(filename));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(filename)));
 		while (true) {
 			String line = reader.readLine();
 			// no more lines to read
